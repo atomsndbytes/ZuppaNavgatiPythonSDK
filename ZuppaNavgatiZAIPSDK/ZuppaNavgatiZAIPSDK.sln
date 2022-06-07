@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ZuppaNavgatiZAIPSDK", "ZuppaNavgatiZAIPSDK\ZuppaNavgatiZAIPSDK.pyproj", "{EA85EC93-0411-4B1E-B590-AB2568EBFC01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA85EC93-0411-4B1E-B590-AB2568EBFC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA85EC93-0411-4B1E-B590-AB2568EBFC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5BA0014-829D-407A-B554-A6B4FB633FF3}
+	EndGlobalSection
+EndGlobal
