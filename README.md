@@ -12,6 +12,6 @@ Interfacing:
 1) Over Zuppa Navgati autopilot Telemetry Port via TX / RX - TTL Interface 
 2) Over USB Interface Of zuppa Navgati Autopilot.
 
-Contact Information :
+For any queires;
 
-venkat@zuppa.io , niyaskhan@zuppa.io for any further details.
+askme@zuppa.io
