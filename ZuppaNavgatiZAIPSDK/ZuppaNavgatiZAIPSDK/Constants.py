@@ -8,6 +8,16 @@ import numpy as np
 import struct
 import serial
 
+VERSION_NO="4.1.0"
+
+'''
+//-----CHANGE LOG:
+
+Version 4.1.0:
+a) Very Slow Target Position Update nearly 3 seconds once , changed to make faster at 300ms or 0.3 seconds.
+b) Manual Controls Multipler was very high , hence was causing major problem with manual controls.
+c) ADDED DRONE_TYPE contant to switch between airplane and multirotor drones.
+'''
 
 #----------WIRELESS DEFINES----------------
 FWD_PORT_TIMEOUT=6000
@@ -20,7 +30,11 @@ DEFAULT_BAUDRATE=9600
 SDK_ANGLE_SCALE_FACTOR=1.75929
 SDK_UPDATE_TIME=100
 
+class DRONE_TYPES(enum.IntEnum):
+    FIXED_WING=0
+    MULTIROTOR=1
 
+DRONE_TYPE=DRONE_TYPES.FIXED_WING # 0 -> Airplane , 1 -> Multirotor
 #---------------------------------------
 '''
  (controlParams.pcControlEnable & 0x40)?asopAssigned=1:1;
@@ -269,7 +283,7 @@ class VehicleParams:
             self.targetLat=latFull;
             self.targetLon=lonFull;
             self.targetAlt=altMeters;
-            self.assignTargetPoint=3;
+            self.assignTargetPoint=1;
 
     def initParams(self,maxRange=3000,maxAltitude=300): # maxRange in meters , maxaltitude in meters , this is to limit the input data
         #-------------------

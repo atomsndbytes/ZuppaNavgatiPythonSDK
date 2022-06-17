@@ -92,8 +92,14 @@ class PacketGenerators:
     '''
     def generateCommandPacket(self,mode,roll,pitch,yaw,power,sdkInControl,armToggle):
         chk=0
-        rl=int((roll/1.75929)*10.00)
-        pt=int((pitch/1.75929)*10.00);
+        rl=0
+        pt=0
+        if(Constants.DRONE_TYPE==Constants.DRONE_TYPES.MULTIROTOR):
+            rl=int((roll/1.75929)*10.00)
+            pt=int((pitch/1.75929)*10.00);
+        else:
+            rl=int(roll*1.75929);
+            pt=int(pitch*1.75929);
         control=0;
         self.outputBuffer=[]
         self.outputStream.opStream.clearBuffer();
@@ -162,6 +168,8 @@ class WLMessageParser:
             self.vehicle.altitudeAGLcm=self.inputStream.inStream.float()
             if(self.vehicle.attitude.pSampleTime!=0):
                 dt=float(Constants.millis()-self.vehicle.attitude.pSampleTime)/1000
+                if(dt<=0):
+                    dt=0.1
                 self.vehicle.varioRateCms=(self.vehicle.altitudeAGLcm-self.pAlt)/dt
                 self.vehicle.attitude.gyroRoll=(self.vehicle.attitude.rollDeg-self.pRl)/dt
                 self.vehicle.attitude.gyroPitch=(self.vehicle.attitude.pitchDeg-self.pPt)/dt

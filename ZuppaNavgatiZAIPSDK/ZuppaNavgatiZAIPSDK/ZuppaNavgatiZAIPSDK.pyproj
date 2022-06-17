@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>ZuppaNavgatiZAIPSDK</Name>
     <RootNamespace>ZuppaNavgatiZAIPSDK</RootNamespace>
-    <InterpreterId>Global|VisualStudio|GnuRadioPython</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +39,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
     <InterpreterReference Include="Global|VisualStudio|GnuRadioPython" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

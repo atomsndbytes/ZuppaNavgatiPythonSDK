@@ -50,6 +50,7 @@ class PrimaryInterface:
             a=1
 
     def __init__(self,serialNo,serialFwd):
+        print("ZUPPA NAVGATI PYTHON SDK VERSION ",Constants.VERSION_NO)
         self.inData=[]
         self.fwdData=[]
         self.arrData=[]
