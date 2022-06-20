@@ -8,7 +8,7 @@ import numpy as np
 import struct
 import serial
 
-VERSION_NO="4.1.0"
+VERSION_NO="4.1.2"
 
 '''
 //-----CHANGE LOG:
@@ -17,6 +17,10 @@ Version 4.1.0:
 a) Very Slow Target Position Update nearly 3 seconds once , changed to make faster at 300ms or 0.3 seconds.
 b) Manual Controls Multipler was very high , hence was causing major problem with manual controls.
 c) ADDED DRONE_TYPE contant to switch between airplane and multirotor drones.
+
+Version 4.1.2:
+a) to target point variable added called trueTargetAltitude , which shall give the target altitude set in cm.
+b) targetPosition.altitude now shall have target altitude set in meters.
 '''
 
 #----------WIRELESS DEFINES----------------
@@ -195,6 +199,7 @@ class Position:
         self.latitude=0
         self.longitude=0
         self.altitude=0
+        self.trueTargetAltitude=0;
         self.type=0
 
 class Attitude:
@@ -272,7 +277,7 @@ class VehicleParams:
 
     def setFlightMode(self,mode):
         ret=False;
-        if(mode<FLIGHT_MODES.LOITER):
+        if(mode<=FLIGHT_MODES.LOITER):
             self.assignMode=mode;
             self.setMode=1;
             ret=True;

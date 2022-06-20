@@ -74,7 +74,7 @@ while(True):
             cntr=6000
                                                                           #12.3456789 , 80.1234567 is 123456789,801234567
     print(mainCntr)
-    print(port.wlInterface.vehicle.attitude.rollDeg,port.wlInterface.vehicle.attitude.pitchDeg,port.wlInterface.vehicle.attitude.yawDeg)
+    print(port.wlInterface.vehicle.attitude.rollDeg,port.wlInterface.vehicle.attitude.pitchDeg,port.wlInterface.vehicle.attitude.yawDeg,port.wlInterface.vehicle.targetPosition.trueTargetAltitude)
     print(port.wlInterface.vehicle.attitude.gyroPitch,port.wlInterface.vehicle.attitude.gyroRoll,port.wlInterface.vehicle.attitude.gyroYaw)
     print(port.wlInterface.vehicle.connectedToAutopilot,port.wlInterface.vehicle.currentFlightMode,port.wlInterface.vehicle.armedStatus,port.wlInterface.vehicle.dataTimeStamp)
     time.sleep(0.1)

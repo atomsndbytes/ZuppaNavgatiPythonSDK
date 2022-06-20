@@ -234,7 +234,7 @@ class WLMessageParser:
                 elif(pntr==Constants.WL_LOCATION_POINTER.LOC_PNTR_TARGET):
                     self.vehicle.targetPosition.latitude=float(lat)/10000000
                     self.vehicle.targetPosition.longitude=float(lon)/10000000
-                    self.vehicle.targetPosition.altitude=alt*10
+                    self.vehicle.targetPosition.altitude=alt
                     self.vehicle.targetPosition.type=Constants.WL_TERMINATION_TASK.TARGET_WP
             else:
                 self.vehicle.wayPointList[pntr-Constants.WL_LOCATION_POINTER.LOC_PNTR_WAYPOINT].latitude=lat
@@ -325,6 +325,7 @@ class WLMessageParser:
                 self.tgtSendCnts=0;
                 if(self.vehicle.assignTargetPoint>0):
                     self.vehicle.assignTargetPoint-=1
+                    self.vehicle.targetPosition.trueTargetAltitude=self.vehicle.targetAlt*100;
                     self.packetGen.generateTargetLocationPacket(self.vehicle.targetLat,self.vehicle.targetLon,self.vehicle.targetAlt);
                     self.copyToOutputBuffer(self.packetGen.outputBuffer)
                     self.writeToPacketToBuffer(Constants.WL_PACKETS.PKT_POINT,Constants.WL_PACKETS_PL.POINT_PL)
