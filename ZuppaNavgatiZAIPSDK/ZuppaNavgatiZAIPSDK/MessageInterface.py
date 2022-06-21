@@ -98,8 +98,8 @@ class PacketGenerators:
             rl=int((roll/1.75929)*10.00)
             pt=int((pitch/1.75929)*10.00);
         else:
-            rl=int(roll*1.75929);
-            pt=int(pitch*1.75929);
+            rl=int(roll);
+            pt=int(pitch);
         control=0;
         self.outputBuffer=[]
         self.outputStream.opStream.clearBuffer();
@@ -127,9 +127,9 @@ class PacketGenerators:
         self.outputStream.opStream.uint8_t(control);
         self.outputBuffer=self.outputStream.opStream.buffer;
        # print("LeN: ",len(self.outputBuffer))
-    
 
-        
+
+
 
 
 
@@ -155,7 +155,7 @@ class WLMessageParser:
         self.inputStream  = ByteStream.Stream()
 
 
-        
+
 
     def parseData(self):
        # print("PNTR:",self.protocol.commandType,Constants.WL_PAC_LABELS[self.protocol.commandType])
@@ -286,7 +286,7 @@ class WLMessageParser:
           #  print("AUX1 Packet")
         elif(self.protocol.commandType==Constants.WL_PACKETS.PKT_AUX1_CONF):
             print("AUX1 CONF Packet")
-      
+
 
     def clearTimings(self):
         self.parsedHomePoint=False
@@ -370,7 +370,7 @@ class WLMessageParser:
                         self.vehicle.homePosition.type=Constants.WL_TERMINATION_TASK.HOME_WP
                     self.parsedHomePoint=True
 
-        
+
 
     def dataStep(self,c):
         if((c==Constants.WL_PROTOCOL_ATTRIBUTES.HEADER1) and (self.protocol.step==0)):
@@ -426,5 +426,3 @@ class WLMessageParser:
             else:
                 self.protocol.step=0
         return self.protocol.dataArrvied
-
-
